@@ -36,9 +36,9 @@ class TbelaPacienteCurados (db: SQLiteDatabase) {
     }
 
     companion object {
-        const val NOME_PACIENTE = "livros"
-        const val PACIENTES = "titulo"
-        const val MORADA = "autor"
-        const val IDPACIENTE = "id_categoria"
+        const val NOME_PACIENTE = "Adriano"
+        const val PACIENTES = "Infectados"
+        const val MORADA = "Rua da Boa Esperanca"
+        const val IDPACIENTE = "id"
     }
 }

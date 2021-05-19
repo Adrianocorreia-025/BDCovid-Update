@@ -9,7 +9,7 @@ class TabelaObitos (db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABELA (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_TITULO TEXT NOT NULL, $CAMPO_AUTOR TEXT NOT NULL, $CAMPO_ID_CATEGORIA INTEGER NOT NULL, FOREIGN KEY($CAMPO_ID_CATEGORIA) REFERENCES ${TabelaCategorias.NOME_TABELA})")
+        db.execSQL("CREATE TABLE $NOME_PACIENTE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $PACIENTES TEXT NOT NULL,M$MORADA TEXT NOT NULL, $IDPACIENTE INTEGER NOT NULL, FOREIGN KEY($IDPACIENTE) REFERENCES ${TabelaCategorias.NOME_TABELA})")
     }
 
     fun insert(values: ContentValues): Long {
@@ -36,9 +36,9 @@ class TabelaObitos (db: SQLiteDatabase) {
     }
 
     companion object {
-        const val NOME_TABELA = "livros"
-        const val CAMPO_TITULO = "titulo"
-        const val CAMPO_AUTOR = "autor"
-        const val CAMPO_ID_CATEGORIA = "id_categoria"
+        const val NOME_PACIENTE = "Adriano"
+        const val PACIENTES = "Infectados"
+        const val MORADA = "Rua da Boa Esperanca"
+        const val IDPACIENTE = "id"
     }
 }
