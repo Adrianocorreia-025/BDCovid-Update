@@ -5,11 +5,11 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
 
-class TbelaPacienInfectados (db: SQLiteDatabase) {
+class TabelaPacientes (db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME_PACIENTE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $PACIENTES TEXT NOT NULL,M$MORADA TEXT NOT NULL, $IDPACIENTE INTEGER NOT NULL, FOREIGN KEY($IDPACIENTE) REFERENCES ${TabelaCategorias.NOME_TABELA})")
+        db.execSQL("CREATE TABLE $NOME_PACIENTE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $DATA_NASCIMENTO TEXT NOT NULL,M$CONTACTO TEXT NOT NULL, $DATA_DO_TESTE INTEGER NOT NULL, FOREIGN KEY($IDPACIENTE) REFERENCES ${TabelaCategorias.NOME_TABELA})")
     }
 
     fun insert(values: ContentValues): Long {
@@ -36,9 +36,10 @@ class TbelaPacienInfectados (db: SQLiteDatabase) {
     }
 
     companion object {
-        const val NOME_PACIENTE = "Adriano"
-        const val PACIENTES = "Infectados"
-        const val MORADA = "Rua da Boa Esperanca"
+        const val NOME_PACIENTE = "NOME"
+        const val DATA_NASCIMENTO = "DATA_NASCIMENTO"
+        const val CONTACTO = "CONTACTO"
+        const val DATA_DO_TESTE = "DATA_DO_TESTE"
         const val IDPACIENTE = "id"
     }
 }

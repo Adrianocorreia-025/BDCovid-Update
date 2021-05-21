@@ -15,7 +15,9 @@ class AbrirTabela (context: Context?)
     override fun onCreate(db: SQLiteDatabase?) {
         if (db != null) {
             TabelaCategorias(db).cria()
-            TbelaPacienteCurados(db).cria()
+            Tabela_Enfermeiros(db).cria()
+            Resultado_Testes(db).cria()
+            TabelaPacientes(db).cria()
         }
     }
 
