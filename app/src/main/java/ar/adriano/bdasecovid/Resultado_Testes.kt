@@ -9,7 +9,7 @@ class Resultado_Testes (db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME_PACIENTE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $ENFECTADO TEXT NOT NULL, $NAO_ENFECTADO TEXT NOT NULL, M$CONTACTO TEXT NOT NULL, $IDPACIENTE INTEGER NOT NULL,$DATA_NASCIMENTO INTEGER NOT NULL, FOREIGN KEY($IDPACIENTE) REFERENCES ${TabelaCategorias.NOME_TABELA})")
+        db.execSQL("CREATE TABLE $NOME_PACIENTE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $ENFECTADO TEXT NOT NULL, $NAO_ENFECTADO TEXT NOT NULL, M$CONTACTO TEXT NOT NULL, $IDPACIENTE INTEGER NOT NULL,$DATA_NASCIMENTO INTEGER NOT NULL, FOREIGN KEY($IDPACIENTE) REFERENCES ${TabelaPacientes.NOME_TABLE})")
     }
 
     fun insert(values: ContentValues): Long {
@@ -36,7 +36,9 @@ class Resultado_Testes (db: SQLiteDatabase) {
     }
 
     companion object {
+        const val NOME_TABLE = "PACIENTE"
         const val NOME_PACIENTE = "NOME"
+        const val SEXO = "SEXO"
         const val ENFECTADO = "ENFECTADO"
         const val NAO_ENFECTADO = "NAO_ENFECTADO"
         const val CONTACTO = "CONTACTO"

@@ -7,6 +7,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Before
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -15,10 +16,20 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+    private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
+
+    @Before
+    fun apagarBDdados(){
+
+        getAppContext().deleteDatabase(BDOpenHelper.NOME_BASE_DADOS)
+    }
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ar.adriano.bdasecovid", appContext.packageName)
+    fun  AbrirBDados(){
+        val openHelper = BDOpenHelper(getAppContext())
+        val db = openHelper.readableDatabase
+        assert(db.isOpen)
+        db.close()
+
     }
 }
